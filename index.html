@@ -6,34 +6,6 @@
     <title>Интеграция с Pipedrive</title>
 </head>
 <body>
-    <script>
-        // Ждем загрузки API Pipedrive
-        window.addEventListener('load', function () {
-            // Добавляем кнопку в список сделок (Deals List)
-            window.pipedrive.app.addCustomButton({
-                location: 'deals-list', // Место, где появится кнопка (список сделок)
-                action: () => {
-                    // Функция, которая будет вызвана при нажатии на кнопку
-                    window.pipedrive.showModal({
-                        title: 'Мое приложение',
-                        url: 'https://19vako.github.io/WorkizTest/', // Укажите URL вашего приложения
-                        height: 600 // Высота модального окна
-                    });
-                },
-                label: 'Активировать приложение', // Текст на кнопке
-            });
-        });
-
-        // Пример запроса данных через Pipedrive API для получения сделок
-        function getDeals() {
-            fetch('https://api.pipedrive.com/v1/deals?api_token=5c7bc4257c283e0a7a606fd7de83b9447e845445')
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Список сделок:', data);
-                    
-                })
-                .catch(error => console.error('Ошибка при получении сделок:', error));
-        }
-    </script>
+   <h1>2nj3efwkdqjwlenrb</h1>
 </body>
 </html>
