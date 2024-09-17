@@ -7,101 +7,98 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
- 
-        <h2>Create a Job</h2>
-        <form id="jobForm">
-            <!-- Client details -->
-            <div class="form-group">
-                <div>
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" required>
-                </div>
-                <div>
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" required>
-                </div>
+    <h2>Create a Job</h2>
+    <form id="jobForm">
+        <!-- Client details -->
+        <div class="form-group">
+            <div>
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
             </div>
-            <div class="form-group">
-                <div>
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+            <div>
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
             </div>
-
-            <!-- Job type -->
-            <div class="form-group">
-                <div>
-                    <label for="jobType">Job Type</label>
-                    <select id="jobType" name="jobType" required>
-                        <option value="Recall Job">Recall Job</option>
-                        <option value="New Job">New Job</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="jobSource">Job Source</label>
-                    <select id="jobSource" name="jobSource" required>
-                        <option value="GL Pinellas">GL Pinellas</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required>
             </div>
-
-            <!-- Service location -->
-            <div class="form-group">
-                <div>
-                    <label for="address">Service Location</label>
-                    <input type="text" id="address" name="address" required>
-                </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
             </div>
-            <div class="form-group">
-                <div>
-                    <label for="city">City</label>
-                    <input type="text" id="city" name="city" required>
-                </div>
-                <div>
-                    <label for="zip">Postal Code</label>
-                    <input type="text" id="zip" name="zip" required>
-                </div>
-            </div>
-
-            <!-- Scheduled -->
-            <div class="form-group">
-                <div>
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                <div>
-                    <label for="startTime">Start Time</label>
-                    <input type="time" id="startTime" name="startTime" required>
-                </div>
-                <div>
-                    <label for="endTime">End Time</label>
-                    <input type="time" id="endTime" name="endTime" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <div>
-                    <label for="technician">Technician</label>
-                    <select id="technician" name="technician" required>
-                        <option value="Timur Yussupov">Timur Yussupov</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="buttons">
-                <button type="submit">Create Job</button>
-                <button type="button" onclick="saveInfo()">Save Info</button>
-            </div>
-        </form>
         </div>
 
-    </iframe>
+        <!-- Job type -->
+        <div class="form-group">
+            <div>
+                <label for="jobType">Job Type</label>
+                <select id="jobType" name="jobType" required>
+                    <option value="Recall Job">Recall Job</option>
+                    <option value="New Job">New Job</option>
+                </select>
+            </div>
+            <div>
+                <label for="jobSource">Job Source</label>
+                <select id="jobSource" name="jobSource" required>
+                    <option value="GL Pinellas">GL Pinellas</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Service location -->
+        <div class="form-group">
+            <div>
+                <label for="address">Service Location</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div>
+                <label for="zip">Postal Code</label>
+                <input type="text" id="zip" name="zip" required>
+            </div>
+        </div>
+
+        <!-- Scheduled -->
+        <div class="form-group">
+            <div>
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div>
+                <label for="startTime">Start Time</label>
+                <input type="time" id="startTime" name="startTime" required>
+            </div>
+            <div>
+                <label for="endTime">End Time</label>
+                <input type="time" id="endTime" name="endTime" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="technician">Technician</label>
+                <select id="technician" name="technician" required>
+                    <option value="Timur Yussupov">Timur Yussupov</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <button type="submit">Create Job</button>
+            <button type="button" onclick="saveInfo()">Save Info</button>
+        </div>
+    </form>
+
     <script src="index.js"></script>
 </body>
 </html>
