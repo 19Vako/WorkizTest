@@ -1,29 +1,39 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Application</title>
-    <script>
-        // Настройки Intercom
-        window.intercomSettings = {
-            app_id: "5c7bc4257c283e0a7a606fd7de83b9447e845445", // Замените на ваш реальный App ID
-            // Добавьте другие настройки, если необходимо
-        };
-    </script>
-    <script>
-        // Загрузка скрипта Intercom
-        (function(){
-            var w=window;var ic=w.Intercom;
-            if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}
-            else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};
-            w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;
-            s.src='https://widget.intercom.io/widget/5c7bc4257c283e0a7a606fd7de83b9447e845445'; // Замените на ваш реальный App ID
-            var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};
-            if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
-    </script>
+    <title>Интеграция с Pipedrive</title>
 </head>
 <body>
-    <h1>Добро пожаловать в моё приложение!</h1>
+    <script>
+        // Ждем загрузки API Pipedrive
+        window.addEventListener('load', function () {
+            // Добавляем кнопку в список сделок (Deals List)
+            window.pipedrive.app.addCustomButton({
+                location: 'deals-list', // Место, где появится кнопка (список сделок)
+                action: () => {
+                    // Функция, которая будет вызвана при нажатии на кнопку
+                    window.pipedrive.showModal({
+                        title: 'Мое приложение',
+                        url: 'https://19vako.github.io/WorkizTest/', // Укажите URL вашего приложения
+                        height: 600 // Высота модального окна
+                    });
+                },
+                label: 'Активировать приложение', // Текст на кнопке
+            });
+        });
+
+        // Пример запроса данных через Pipedrive API для получения сделок
+        function getDeals() {
+            fetch('https://api.pipedrive.com/v1/deals?api_token=5c7bc4257c283e0a7a606fd7de83b9447e845445')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Список сделок:', data);
+                    
+                })
+                .catch(error => console.error('Ошибка при получении сделок:', error));
+        }
+    </script>
 </body>
 </html>
