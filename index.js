@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 async function createDealInPipedrive(dealData) {
-    const apiToken = '31a5e6fe0484aca9f28b4c4dab15a47f7ad9ab5e';  // Замените на ваш реальный API токен
+    const apiToken = '5c7bc4257c283e0a7a606fd7de83b9447e845445';  // Используйте переменные окружения для хранения токенов
     const url = `https://api.pipedrive.com/v1/deals?api_token=${apiToken}`;
 
     try {
@@ -21,18 +21,38 @@ async function createDealInPipedrive(dealData) {
     }
 }
 
-// Пример получения данных из iframe и создания сделки
 function getIframeData() {
     const iframe = document.querySelector('iframe');
-    const iframeWindow = iframe.contentWindow;
+    
+    if (!iframe) {
+        console.error('Iframe не найден');
+        return null;
+    }
 
-    // Получение данных из полей формы iframe
-    const firstName = iframeWindow.document.getElementById('firstName').value;
-    const lastName = iframeWindow.document.getElementById('lastName').value;
-    const phone = iframeWindow.document.getElementById('phone').value;
-    const email = iframeWindow.document.getElementById('email').value;
-    const jobType = iframeWindow.document.getElementById('jobType').value;
-    const address = iframeWindow.document.getElementById('address').value;
+    const iframeWindow = iframe.contentWindow;
+    
+    if (!iframeWindow) {
+        console.error('Не удалось получить окно iframe');
+        return null;
+    }
+
+    const getValue = (id) => {
+        const element = iframeWindow.document.getElementById(id);
+        return element ? element.value.trim() : '';
+    };
+
+    const firstName = getValue('firstName');
+    const lastName = getValue('lastName');
+    const phone = getValue('phone');
+    const email = getValue('email');
+    const jobType = getValue('jobType');
+    const address = getValue('address');
+
+    // Валидация данных
+    if (!firstName || !lastName || !email) {
+        console.error('Недостаточно данных для создания сделки');
+        return null;
+    }
 
     return {
         title: `${firstName} ${lastName} - ${jobType}`, // Название сделки
@@ -48,4 +68,6 @@ function getIframeData() {
 
 // Использование
 const dealData = getIframeData();  // Получаем данные из iframe
-createDealInPipedrive(dealData);   // Отправляем запрос в Pipedrive
+if (dealData) {
+    createDealInPipedrive(dealData);   // Отправляем запрос в Pipedrive
+}
